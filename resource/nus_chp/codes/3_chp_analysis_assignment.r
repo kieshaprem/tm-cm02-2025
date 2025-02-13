@@ -1,7 +1,7 @@
 ############# Homework ############# 
 
 # import the data for analysis
-
+load('data/chp_cleaned.rdata')
 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
@@ -12,7 +12,9 @@
 # 1.	Populate the table 
 
 ## a) Age and CVD (Tips:  use the sd() function to calculate standard deviation, e.g., sd(chp$age[chp$cvd %in% 1]))
-
+t.test(chp$age~chp$cvd) 
+sd(chp$age[chp$cvd %in% 1])
+sd(chp$age[chp$cvd %in% 0])
 
 
 ## b) BMI and CVD 
