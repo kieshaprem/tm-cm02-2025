@@ -82,7 +82,7 @@ sd(chp$age[chp$cvd %in% 0])
 # ++++++++ Question 5 ++++++++ #
 
 # 5. Is there a linear association between BMI and LDL cholesterol levels? 
-# Report the correlation coefficient and p value of correlation. 
+# Report the correlation coefficient and p value of correlation. (use cor.test())
 
 
 
