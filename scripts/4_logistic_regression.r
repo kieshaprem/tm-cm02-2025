@@ -140,7 +140,8 @@ plot(tardive$durill, tardive$exponeur, pch = 16)
 
 # You may want to start off with the following commands:
 
-fit.1 <- glm(td ~ age + durill + exponeur + cpz + sex + htra + t102, data = tardive,family = "binomial")
+fit.1 <- glm(td ~ age + durill + exponeur + cpz + sex + htra + t102, data = tardive,
+             family = "binomial")
 summary(fit.1)
 anova(fit.1, test = "Chisq")
 # What is the anova command essentially trying to do? 
@@ -155,6 +156,7 @@ anova(fit.1, test = "Chisq")
 # Then, compare the model fits 
 # Continue the model selection to identify a parsimonious model.
 fit.2 <- glm(td ~ age + durill + cpz + sex + htra + t102, data = tardive, family = "binomial")
+summary(fit.2)
 anova(fit.2, test = "Chisq")
 anova(fit.1, fit.2, test = "Chisq")
 
@@ -162,9 +164,11 @@ anova(fit.1, fit.2, test = "Chisq")
 # Then, compare the model fits using the anova function. 
 
 fit.3 <- glm(td ~ age + durill + cpz + htra + t102, data = tardive, family = "binomial")
+summary(fit.3)
 anova(fit.3, test = "Chisq")
 
 fit.4 <- glm(td ~ age + durill + cpz + htra, data = tardive, family = "binomial")
+summary(fit.4)
 anova(fit.4, test = "Chisq")
 
 fit.5 <- glm(td ~ age + cpz + htra, data = tardive, family = "binomial")
@@ -173,8 +177,12 @@ anova(fit.5, test = "Chisq")
 fit.6 <- glm(td ~ age + cpz, data = tardive, family = "binomial")
 anova(fit.6, test = "Chisq")
 
+fit.6 <- glm(td ~ age + cpz, data = tardive, family = "binomial")
+anova(fit.6, test = "Chisq")
+
 summary(fit.6)
 
+exp(cbind(coef(fit.6),confint(fit.6)))
 # How do the results of the parsimonious model differ from the findings obtained 
 # from the univariate analyses? What is the likely explanation for the difference?
 
